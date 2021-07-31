@@ -1,3 +1,4 @@
+'use strict';
 const depositAmountInputEl=document.getElementById('amount-input');
 const periodInputEl=document.getElementById('period-input');
 const totalAmountEl=document.getElementById('total');
@@ -9,12 +10,11 @@ function calculateIncome(depositAmount, depositPeriod){
         interestRate=2;
     } else if (depositPeriod<9){
         interestRate=2.2;
-    } else  if (depositPeriod<12) {
+    } else if (depositPeriod<12) {
         interestRate = 2.3;
-    }else  if (depositPeriod<18) {
+    } else if (depositPeriod<18) {
         interestRate = 2.6;
-    }
-    else  if (depositPeriod===18) {
+    } else if (depositPeriod===18) {
         interestRate = 2.7;
     }
     //const income=Number(((depositAmount*interestRate*depositPeriod)/12).toFixed());
@@ -26,8 +26,7 @@ function calculateIncome(depositAmount, depositPeriod){
         income,
         totalAmount,
         interestRate,
-    }
-
+    };
 }
 function handleSubmit(evt) {
     evt.preventDefault();
@@ -36,7 +35,7 @@ function handleSubmit(evt) {
     const result = calculateIncome(deposit, period);
     totalAmountEl.textContent=`${result.totalAmount}`;
     profitEl.textContent=`${result.income}`;
-    percentEl.textContent=`${result.interestRate}`
+    percentEl.textContent=`${result.interestRate}`;
 }
 const formEL=document.getElementById('deposit-form');
 formEL.addEventListener('submit',handleSubmit);
